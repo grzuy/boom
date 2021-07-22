@@ -6,7 +6,7 @@ defmodule NotifierTest do
 
   doctest BoomNotifier
 
-  @receive_timeout 500
+  @receive_timeout 1000
 
   defmodule FakeNotifier do
     @behaviour BoomNotifier.Notifier
@@ -290,7 +290,7 @@ defmodule NotifierTest do
     conn = conn(:get, "/")
 
     assert capture_log(fn ->
-             assert_raise NotifierTest.TestException, "booom!", fn ->
+             assert_raise TestException, "booom!", fn ->
                PlugErrorWithFailingNotifier.call(conn, [])
              end
            end) =~

@@ -4,7 +4,7 @@ defmodule MailerNotifierTest do
 
   doctest BoomNotifier
 
-  @receive_timeout 500
+  @receive_timeout 1000
 
   defmodule TestController do
     use Phoenix.Controller
